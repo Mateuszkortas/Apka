@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
@@ -107,9 +108,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget _buildUserWidget(FirebaseUser user) {
     if (user == null) {
       return Text("Login With Google");
-    } else {
+    }
+    else {
       return Row(
-        children: [Text(user.displayName), Image.network(user.photoUrl)],
+        children: [Text(user.displayName),
+          Image.network(user.photoUrl)],
       );
     }
   }
